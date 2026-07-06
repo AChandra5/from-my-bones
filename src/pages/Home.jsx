@@ -28,7 +28,7 @@ function Home() {
           <span className="eyebrow hero-eyebrow">a small, unhidden archive</span>
           <h1 className="hero-title">From My Bones</h1>
           <p className="hero-tagline">
-            Poetry pulled from old wounds, soft scars, and quiet nights.
+            Poetry pulled from old wounds, soft scars, and quiet nights,
 written from my bones.
           </p>
         </div>
