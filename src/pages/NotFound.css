@@ -1,0 +1,23 @@
+.not-found {
+  padding: 120px 0;
+  max-width: 520px;
+}
+
+.not-found-title {
+  font-size: 2.4rem;
+  font-style: italic;
+  margin: 16px 0 20px;
+}
+
+.not-found-text {
+  color: var(--ash);
+  line-height: 1.7;
+  margin-bottom: 30px;
+}
+
+.not-found-link {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  color: var(--gold-thread);
+}

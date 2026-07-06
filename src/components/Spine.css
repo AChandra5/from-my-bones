@@ -1,0 +1,89 @@
+.spine {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding-left: 26px;
+}
+
+.spine-line {
+  position: absolute;
+  left: 5px;
+  top: 6px;
+  bottom: 6px;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--gold-thread), var(--paper-line) 85%);
+  transform: scaleY(0);
+  transform-origin: top;
+  animation: draw-spine 1.4s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+  animation-delay: 0.2s;
+}
+
+@keyframes draw-spine {
+  to {
+    transform: scaleY(1);
+  }
+}
+
+.spine-node {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  opacity: 0;
+  transform: translateX(-6px);
+  animation: node-in 0.6s ease forwards;
+  animation-delay: calc(0.5s + var(--delay, 0s));
+}
+
+@keyframes node-in {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.spine-dot {
+  position: absolute;
+  left: -26px;
+  top: 6px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  border: 1.5px solid var(--gold-dim);
+  background: var(--ink);
+  transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.spine-node:hover .spine-dot,
+.spine-node.is-active .spine-dot {
+  background: var(--gold-thread);
+  border-color: var(--gold-thread);
+  box-shadow: 0 0 0 4px rgba(176, 141, 87, 0.15);
+}
+
+.spine-label {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.spine-mark {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  color: var(--gold-thread);
+  opacity: 0.8;
+}
+
+.spine-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--bone-dim);
+  transition: color 0.25s ease;
+}
+
+.spine-node:hover .spine-title,
+.spine-node.is-active .spine-title {
+  color: var(--bone);
+}

@@ -1,0 +1,28 @@
+.header {
+  padding: 28px 0 22px;
+  border-bottom: 1px solid var(--paper-line);
+}
+
+.header-inner {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.header-mark {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.header-mark-title {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.5rem;
+  letter-spacing: 0.01em;
+  color: var(--bone);
+}
+
+.header-mark-sub {
+  color: var(--gold-thread);
+}

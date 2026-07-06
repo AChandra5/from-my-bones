@@ -1,0 +1,71 @@
+.poem-card {
+  display: block;
+  padding: 26px 28px;
+  background: var(--paper-dark);
+  border: 1px solid var(--paper-line);
+  border-radius: 2px;
+  position: relative;
+  transition: border-color 0.3s ease, transform 0.3s ease, background 0.3s ease;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: card-in 0.7s ease forwards;
+  animation-delay: var(--delay, 0s);
+}
+
+@keyframes card-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.poem-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--marrow);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.35s ease;
+}
+
+.poem-card:hover {
+  border-color: var(--gold-dim);
+  background: #201f27;
+  transform: translateY(-3px);
+}
+
+.poem-card:hover::before {
+  transform: scaleY(1);
+}
+
+.poem-card-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.poem-card-title {
+  font-size: 1.7rem;
+  font-style: italic;
+  margin-bottom: 12px;
+}
+
+.poem-card-excerpt {
+  font-family: var(--font-body);
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: var(--ash);
+  margin-bottom: 18px;
+}
+
+.poem-card-read {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-thread);
+}
