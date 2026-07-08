@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react'
 import { useParams, Link, Navigate } from 'react-router-dom'
 import Spine from '../components/Spine.jsx'
 import poems from '../data/poems.js'
@@ -6,6 +7,14 @@ import './PoemDetail.css'
 function PoemDetail() {
   const { slug } = useParams()
   const index = poems.findIndex((p) => p.slug === slug)
+  const bodyRef = useRef(null)
+
+  useEffect(() => {
+    // Scroll to the poem body itself, not the page top. On mobile the
+    // spine nav is stacked above the poem, so scrolling to "top" just
+    // shows the nav and leaves the newly-loaded poem hidden below it.
+    bodyRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }, [slug])
 
   if (index === -1) {
     return <Navigate to="/" replace />
@@ -25,7 +34,7 @@ function PoemDetail() {
           <Spine poems={poems} activeSlug={poem.slug} />
         </aside>
 
-        <div className="detail-body">
+        <div className="detail-body" ref={bodyRef}>
           <header className="detail-header">
             <span className="eyebrow">{poem.mark} · {poem.year}</span>
             <h1 className="detail-title">{poem.title}</h1>
